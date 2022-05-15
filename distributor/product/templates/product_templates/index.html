@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <div class="container">
+    <h1>Hello Hairun!</h1>
+    <div class="row">
+        <div class="col-sm-6" style="border:1px solid;">
+            
+            <!-- TODO: show the list product here -->
+            {% comment %} {%block product_list_content%}
+            {%endblock%} {% endcomment %}
+            {% if latest_product %}
+                <!-- <ul> -->
+                {% for product in latest_product %}
+                <span>
+                    {{ product.name}}
+                </span> - <span>{{ product.create_date }}</span> </br> </hr>
+
+                {% endfor %}
+                <!-- </ul> -->
+            {% else %}
+                <p>No product available.</p>
+            {% endif %}
+        </div>
+        <div class="col-sm-6" style="border:1px solid">
+            <!-- TODO: put the form to insert product here -->
+            <form method='POST'> 
+                {% csrf_token %}
+                {{form.as_p}}
+                <button class="btn btn-primary" type="submit" >Valider</button>
+
+            </form>
+            
+        </div>
+    </div>
+    </div>
+{% endblock %}
