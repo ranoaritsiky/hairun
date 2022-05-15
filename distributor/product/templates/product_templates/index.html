@@ -4,8 +4,9 @@
 {% block content %}
     <div class="container">
     <h1>Hello Hairun!</h1>
+    <hr/>
     <div class="row">
-        <div class="col-sm-6" style="border:1px solid;">
+        <div class="col-sm-6" style=" padding-top:10px">
             
             <!-- TODO: show the list product here -->
             {% comment %} {%block product_list_content%}
@@ -23,15 +24,16 @@
                 <p>No product available.</p>
             {% endif %}
         </div>
-        <div class="col-sm-6" style="border:1px solid">
+        <div class="col-sm-6" style=" padding-top:10px;padding-bottom:10px;">
             <!-- TODO: put the form to insert product here -->
             <form method='POST'> 
                 {% csrf_token %}
                 {{form.as_p}}
-                <button class="btn btn-primary" type="submit" >Valider</button>
+                <button class="btn btn-primary" type="submit" >Save</button>
 
             </form>
-            
+            <br/>
+            <a name="" id="" class="btn btn-danger" href="delete/" role="button">Delete</a>
         </div>
     </div>
     </div>
